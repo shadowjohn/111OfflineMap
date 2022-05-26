@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="tw.gis.tw.offlineMap" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>OfflineMap</name>
+    <description>OfflineMap</description>
+    <author email="john@gis.tw" href="https://3wa.tw">
+        GIS Team
+    </author>
+    <platform name="android">
+      <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+      <preference name="AndroidExtraFilesystems" value="files,files-external,documents,sdcard,cache,cache-external,assets,root" />
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+        <feature name="Launcher">
+            <param name="ios-package" value="Launcher" />
+        </feature>
+    </platform>
+
+    <content src="index.html" />
+    <access origin="*" />
+    <access launch-external="yes" origin="*" />
+    <allow-navigation href="*" />
+    <allow-intent href="*" />
+    
+</widget>

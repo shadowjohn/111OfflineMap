@@ -1,0 +1,449 @@
+2019/02/26  7.0.0  first version
+2019/03/08  7.0.1  easymap.js  
+            fix: openInfoWindow() callback 失效
+2019/03/15  7.0.2   easymap.js
+            fix: attachEvent() moveend movestart失效
+            fix: deatchEvent() 失效
+2019/03/18  7.0.3  1. class dgKml 加上enableCluster() setZoomWithoutCluster()
+          2. easymap.js fix: kml開啟cluster時，無法setUpperZoomByBoundary 跟callback
+          3. easymap.js fix: kml開啟cluster時 無法removeitem     
+          4. easymap.js fix: openInfoWindow style修改
+2019/03/19  7.0.4  fix: 
+            1.把 dgKml.ondblclick拿掉
+            2. dgkml 增加setFeatureClick() 方法
+            3. dgkml 增加enableLineStringArrow() disalbeLineStringArrow() 方法
+2019/03/20  7.0.5  fix: enableLineStringArrow() 支援lineString跟point同時
+2019/03/25  7.0.6  add: dgkml 增加setFeatureHover() 方法
+          add: dgkml cluster的click事件
+2019/04/08  7.0.7   add:  createDiv method
+            fix:  dgPolygon 讓不影響外面的變數
+          fix:  attacheEvent 整理
+          fix: easymap.js wheelZoom 修復
+2019/04/11      add: easymap.js 增加 getBasemapName() 方法
+          add: digimap.js 增加 _mname
+2019/04/12      add: 加上本來的方法 getMapName()
+2019/04/12 7.0.8  add: dgkml class 加上 setFeatureSelect() 開關
+2019/04/16      update: class.js 修復 kml.updateStyleByName()
+2019/04/29      update: class.js dgGStyle() 增加 setColorHigh() setColorMedium() setColorLow()
+2019/05/20      fix:dgmarker 無法調整icon 大小
+          fix:讓dgmarker總是提到最高
+2019/05/22 7.0.9  add: map.rotate();
+2019/06/14 7.0.10  fix: 1. dgkml networklink error，httpRequest還在讀資料時，如果removeItem會錯誤
+             2. 調整cluster的效率
+2019/06/24     fix: dgkml zoomByBoundary 可以直接zoomto 
+2019/07/01              add: isDrawMode()   cancelDrawMode()
+      fix: setDrawMode() not set resultDraw when drawing
+2019/07/03    fix: createDiv() bug
+2019/07/04    fix:加上version變數
+2019/07/17    fix: dgPolyline加上 dash
+2019/07/23    fix: kml.updateStyle 增加graphicOpasity
+2019/07/24    fix: kml.updateStyle 修改 
+        add: digimap._hexToRgbA();
+2019/07/25    fix: kml._kmlGroundOverlay加上完成事件
+2019/09/04 7.0.11
+        fix: setDrawMode polygon 顯示
+        add: map.getDrawResultObject() 之前沒加到
+2019/09/06
+        fix: marker.getXY
+        fix: marker.setXY (string html only)
+        fix: marker.setContent (string html only)
+        fix: marker.openInfoWindow (string html only)
+2019/09/09
+        fix: 修正使用方式與 easymap 6 一樣
+2019/09/11
+        fix: 修正遇到錯誤的 dgXY 坐標，疊東西不會全數壞掉，而是跳過並提出錯誤 console
+2019/09/16
+        fix: 2D、3D 切換時，工具列圖示顯示錯誤
+        fix: 圖台旋轉時，指南針未跟著動作
+2019/09/17
+        fix: 修正 2D、3D 切換時，string marker、openInfoWindow 會重疊變二個的問題
+        fix: 修正 openInfoWindow before、after 樣式，註冊在 head 裡        
+2019/09/23
+        fix: 修正 2D、3D 切換時，如果使用者開控制項，3D 畫面會消失的問題         
+2019/10/04
+        add: 計算距離，增加 Box 的方法
+2019/10/09
+        add: 調整測量時，start 的方法        
+2019/11/04
+        add: gltf 物件被點到的方法、範例 
+        add: 桃園地形圖範例
+        add: 桃園大範圍建物範例
+2019/11/12
+        add: 修正 dgkml 多點時下拉選單
+        add: 選擇 dgkml 下拉選單時，可以置頂
+2019/11/13
+        add: 選擇 dgkml 下拉選單時，只會收納 point 類型資料，其他類型則跳過
+        add: dgkml 下拉選單的名字改短「選擇」
+        fix: 修正移除 3dtiles 物件的功能 removeItem                              
+2019/11/19
+        fix: 修正 2D、3D 切換時，會看到雙影 openInfoWindow 的問題
+2019/11/20
+        fix: 修正 dgKML cluster 時，數量的問題        
+2019/12/02
+        add: dgMarker class, _setText() private function 給專案用 未來可以考慮6 7 都支援       
+        add: 增加右鍵選單的功能        
+2019/12/03
+        fix: 增加右鍵選單，按左鍵可以隱藏      
+2019/12/09
+        add: 增加 setMapControl 工具列可以調整位置
+        fix: setMapControlV 修正取得 .map__wedget__btn 方法
+        fix: setScaleLineVisible 修正取得 .ol-scale-line-inner 方法
+        fix: setItemTop 遇到 html marker 的問題          
+2019/12/10
+        add: 增加 setZIndexTop 同 6 版作法
+        fix: 修正 setItemZIndex 處理 html marker 的問題
+        fix: 修正 getItemZIndex 處理 html marker 的問題 
+2019/12/14
+        fix: class dgSource 增加參數 options 方便配合easymap6
+        fix: _addDgSource可以支援array
+        fix: _kmlNetworkLink 參數少傳
+2019/12/20
+        add: gltf 增加方法：setBorder
+        add: gltf 增加方法：getBorder
+        add: gltf 增加方法：setScale
+        add: gltf 增加方法：getScale        
+        add: gltf 增加方法：getBorderColor
+        add: gltf 增加方法：setBorderColor
+        add: gltf 增加方法：setX
+        add: gltf 增加方法：setY
+        add: gltf 增加方法：setZ
+        add: gltf 增加方法：setXY
+        add: gltf 增加方法：setXYZ
+        add: gltf 增加方法：getXYZ
+        add: gltf 增加方法：setRotate
+        fix: 2D dgmarker onmouseover、onmouseout ok
+2019/12/25
+        add: gltf 增加方法：getZ
+        fix: gltf setRotate 後高度錯誤的問題
+2019/12/26
+        fix: gltf 方法 getXYZ 寫成 layer._instance
+        fix: gltf 方法 setRotate 寫成 layer._instance         
+2019/12/27
+        fix: 地圖 3D 時，常常會捲到地面以下的問題 fix3DUnderGround
+2019/12/30
+        fix: marker._setText() 
+        fix: 地圖 3D 時，最低捲亂位置到 200
+2019/12/31                          
+        add: 地圖 3D 增加方法：get3DGroundAltitude 取得海拔高度
+        fix: gltf 同 dgmarker 加一個 _dgxy 屬性
+2020/01/02
+        fix: gltf setX 更新 _options 值
+        fix: gltf setY 更新 _options 值
+        fix: gltf setZ 更新 _options 值
+        fix: gltf setXY 更新 _options 值
+        fix: gltf setXYZ 更新 _options 值
+        add: gltf 加入時，自動判斷有無開啟地形，調整為地面高往上至自定值
+        add: get3DIsTerrainEnable 函式，是否有開啟地形圖
+        add: set3DGltfsToGround 可將指定的 3d 物件(陣列)，貼地
+2020/01/03
+        fix: set3DGltfsToGround 可將 dgmarker 貼地地形圖
+        add: add3DLabelLine 線條式 dgmarker 樣式          
+2020/01/08
+        fix: add3DLabelLine 線條式 Vector 樣式
+        add: add3DImageLine HTML Vector 樣式
+        add: 加入 html2canvas 功能             
+2020/01/09
+        add: add3DLabelLine 增加預設樣式 0、1、自定 css、距離漸近感
+2020/01/10
+        add: 增加 divflybox 浮動樣式盒
+        fix: 修正圖台 3D 時緩慢的問題
+        fix: 3d 點選事件，改至 digi3d.js         
+2020/01/30
+        version:7.0.13
+        add: 增加dgSource NLSCHex 格式
+2020/02/05 
+        add: 加上 ol.format.GeoJSON 參考
+        fix: digimap._xhr failure事件修改
+
+2020/02/27
+        add: 增加 statusbar、setStatusBarVisible(true)
+        fix: statusbar 顯示的小數點增到6位
+        fix: 面積計算，小數點平方公里二位，平方公尺三位
+2020/03/02
+        fix: 面積計算，修正面積計算錯誤
+2020/03/05
+        fix: Gmarker 太小的cluster沒有底色
+        fix: 補上setZoomWithoutCluster操作
+2020/03/10
+        fix: dgIcon 後面調整大小可生效，但只參考「寬」等比調整大小
+2020/03/11
+	fix: dgGMarker還沒完成，補完一些操作
+2020/03/12
+	fix: openInfoWindow增加一個參數disableZoomCenter, disableZoomCenter=true就不zoom到中心
+2020/03/13
+	fix: openInfoWindow不要移到center
+2020/03/19 
+	fix: dgmarker.setXY的dgIcon版補上
+2020/03/23
+	fix: digimap._getOlStyleFromStyleFunction 修正stroke_.width_字串的錯誤
+2020/03/26
+	fix: _kmlRequestSuccess() 如果kmltag是不在處理清單，也要callback
+2020/03/27
+  add: 3D 的情境時，dgMarker 可以 setXYZ、getXYZ、getZ、setZ
+2020/03/30
+  add: 3D 開關地型時，都會調整 dgmarker 高度
+  add: 3D 物件加上 _orin_height 來代表無地型的實際離地高
+  fix: 東門溪物件糊改成清晰
+2020/03/31
+  add: 3D dgkml 可以 setZ、getZ
+2020/04/01
+  add: 3D dgkml 可以支援 set3DGltfsToGround 調整修正相對地形高度
+  add: 3dtiles 可以 setOpacity、setColor 、getColor
+2020/04/08 
+	fix: KML 空白也可以發結束事件  
+2020/04/13
+	fix: 讓openInfoWindow 支援不用輸入 w h
+	fix: statusbar的width=100%
+2020/04/15
+    fix: openInfoWindow 在 2D 3D 切換時，會出現多一個 btn_close (x) 的問題
+    fix: openInfoWindow 在 3D 時，不會被 gmarker 檔住畫面    
+2020/04/16
+	fix: dgpolyline polygon curve可以apply不同的style
+2020/04/20
+  add: gltf 物件增加 getAlpha、getOpacity
+  add: gltf 物件增加 setAlpha、setOpacity
+  add: gltf 物件增加 getColor
+  add: gltf 物件增加 setColor   
+2020/04/21
+  fix: add3DLabelLine 當沒有高度時，不需要 polyline    
+2020/04/27
+  add: dgPolyline dgPolygon dgCurve 增加 onclick 事件
+  add: dgPolyline dgPolygon dgCurve 增加 onmouseover 事件
+  fix: 調整 statusbar zindex 為 1
+2020/04/28
+  add: easymap.getArea easyamp.getLength
+2020/05/12
+	fix: 讓kml錯誤的點位ex: 23.1,121.5 不會出錯
+2020/05/15
+	add: setDraggable
+2020/05/18
+	fix: _openInfoWindow 適用手機板
+2020/05/25
+  add: dgmarker 同位置多物件點擊事件處理方法範例  
+2020/06/12
+  add: dg3d 加入 3dion 功能，可以載入 cesium ion 服務 id  
+2020/06/15
+  fix: setItemZIndex 修正陣列長度是 0 會發生錯誤的問題  
+2020/0615
+  fix: _openInfowindow() 可以適用多一點狀況
+2020/06/30
+  fix: _openInfowindow() 可以適用多一點狀況
+2020/08/03
+  fix: kml cluster throshold 
+2020/08/04
+  add: kml onFeatureSelect 增加一個
+2020/08/05
+  fix: gltf setScale、setZ 可以允許 float  
+2020/08/19
+  fix: dgmarker/ dggmarker的 onmousein / onmouseout / onmouseover
+2021/05/05
+  fix: fortify key issue
+  fix: 右鍵選單位置跑位
+  fix: 註冊圖台滑鼠事件，放入 map._events，不會重複註冊 olmap
+  fix: 修正 dgIcon 範例
+  fix: 修正 dgPoint 範例
+2021/05/06
+  fix: html2canvas 掃 fortify 問題  
+2021/05/10
+  fix: 修正 dgKml setUpperZoomByBoundary 問題
+    var kml = new dgKml("https://winfo.tycg.gov.tw/Transfer/WebService/WSTransfer.ashx?op=GET&SN=80&key=5586EEF9BDC25AE1", function () { });
+    kml.setUpperZoomByBoundary(true); //位置錯誤問題
+    map.addItem(kml);  
+2021/05/17
+  fix: 修正 dgKml setUpperZoomByBoundary 問題
+    https://easymap.gis.tw/easymap/api.html 元件->bugKml 測試各類型的 kml 以後有問題都在這測試    
+2021/06/07
+  add: Vector 可以 Scale、Rotate 
+       支援 dgPolygon、dgPolyline、dgCurve
+       https://easymap.gis.tw/easymap/api.html 元件->polygon、polyline、curve 放大、縮小 旋轉功能  
+2021/06/08       
+  add: Vector 可以 Scale、Rotate、Editor 
+       支援 dgPoint、dgPolygon、dgPolyline、dgCurve
+       https://easymap.gis.tw/easymap/test.html 元件->polygon、polyline、curve 放大、縮小 旋轉、編輯路徑範例
+2021/06/11
+  add: dgKml 在下拉沒東西時，也會隱藏
+  add: dgKml 增加 setShowInSelect(bool);、getShowInSelect(); 可以決定要不要顯示在下拉選單
+  add: dgKml setStrokeColor、getStrokeColor、setStrokeWidth、getStrokeWidth 改變顏色、粗細      
+  add: dgPolyline setStrokeColor、getStrokeColor、setStrokeWidth、getStrokeWidth 改變顏色、粗細
+  add: dgPolygon setStrokeColor、getStrokeColor、setStrokeWidth、getStrokeWidth setFillColor getFillColor 改變顏色、粗細
+  add: dgCurve setStrokeColor、getStrokeColor、setStrokeWidth、getStrokeWidth setFillColor getFillColor 改變顏色、粗細
+  fix: dgkml 增加 setZIndex、getZIndex 方法
+2021/06/15
+  fix: dgKml setStrokeColor getStrokeWidth 裡迴圈執行  
+2021/07/01 - 7.0.18
+  add: openlayers 升級 6.5.0
+  add: olcs 升級 2.13.0
+  add: ol-mapbox-style 加載
+  add: cesium 升級 1.82.1
+  fix: vectortile 速度提升  
+  fix: 修正旋轉時 vector 跑版
+  fix: 畫面調整大小
+  fix: 修正箭頭
+2021/07/12
+  add: dgText
+  add: dgPoint getXY
+  add: dgPoint setXY
+  add: dgPoint getStrokeWidth
+  add: dgPoint setStrokeWidth
+  add: dgPoint getFillColor
+  add: dgPoint setFillColor
+  add: version_full 知道哪版的 easymap
+2021/07/16
+  add: dgText setXY
+  add: dgText getXY
+  add: dgText setText
+  add: dgText getText
+  add: dgText setRotate
+  add: dgText getRotate
+  add: dgText setTextColor
+  add: dgText getTextColor
+2021/07/19
+  fix: getUpperZoomByBoundary 可以自動判斷四角位置
+  add: dgText getCenter
+  add: dgText getExtent
+  add: dgText setUpperZoomByBoundary
+  add: dgPoint getCenter
+  add: dgPoint getExtent
+  add: dgPoint setUpperZoomByBoundary
+  add: dgPolyline getCenter
+  add: dgPolyline getExtent
+  add: dgPolyline setUpperZoomByBoundary
+  add: dgPolygon getCenter
+  add: dgPolygon getExtent
+  add: dgPolygon setUpperZoomByBoundary
+  add: dgCurve getCenter
+  add: dgCurve getExtent
+  add: dgCurve setUpperZoomByBoundary
+2021/07/20 - 7.0.19
+  add: dgStaticImage
+  add: dgStaticImage setURL
+  add: dgStaticImage getURL
+  add: dgStaticImage getExtent
+  add: dgStaticImage setExtent
+  add: dgStaticImage getCenter
+  add: dgStaticImage setUpperZoomByBoundary
+2021/07/28 - 7.0.20
+  add: dgGeoJson
+  add: dgGeoJson setUpperZoomByBoundary
+  add: dgGeoJson getCenter
+  add: dgGeoJson getExtent
+  fix: dgKml double == null
+  fix: setUpperZoomByBoundary
+2021/07/30 - 7.0.21
+  fix: dgGMarker 分群
+2021/08/02
+  fix: dgGMarker Events
+2021/08/03
+  fix: dgStaticImage 很糊的問題
+  fix: dgGMarker event mousemove=onmousemove mouseout=onmouseout
+2021/08/04
+  add: dgStaticImage 自定 obj width、height、rotate
+  add: dgStaticImage 可以套 svg 圖片
+2021/08/10
+  fix: dgStaticImage setURL imageLoadFunction 取自影像寬、高修正
+2021/08/24
+  add: dgkml 可以直接載入 kmz 
+2021/09/14
+  add: enableScaleRotate 加入 onedit_select、onedit_end 事件   
+2021/09/15
+  add: tranXY 坐標轉螢幕 xy  
+2021/09/17
+  add: enableScaleRotate 調整完畢後，更新原本 draw 的 xs、ys、xys  
+2021/09/22
+  add: enableScaleRotate 調整完畢後，更新原本 draw 的 xs、ys、xys(curve)
+  add: enableEditor 調整完畢後，更新原本 draw 的 xs、ys、xys(text)
+  add: add ol.render.getVectorContext
+  add: highlightXY
+2021/09/23
+  fix: 2021-09-23 建立偵測點擊，不需檢查是否符合 geometry  
+       Array.isArray(mf.values_.geometry.flatCoordinates)  
+2021/09/24
+  add: wmts 加入 crossOrigin 自定參數
+  fix: vectortile 修正截圖失敗問題       
+  fix: vectortile_rex 加入 crossOrigin 自定參數
+  update: 更新 html2canvas 至最新 1.3.2 版
+2021/09/27
+  add: screenshot_cut 加入裁切圖台某個範圍的功能  
+2021/09/28
+  fix: dgkml zoomByBoundary 修正  
+  fix: enableEditor 編輯線段問題
+2021/09/30  
+  fix: enableEditor 編輯線段問題 obj null
+  fix: 向量資料 onclick 判斷式寫法問題修正
+2021/10/08
+  add: dgkml setFeatureClick 加上點到該點後有多少個點
+2021/10/29
+  add: projTransfer 坐標轉換  
+  add: setMapControl3DIconOnOff 顯示/隱藏3D按鈕
+2021/11/02
+  add: bing map example  
+2021/11/05
+  fix: dgkml networklink
+2021/11/15
+  fix: dgkml getType  
+  add: dgkml getGeometryTypes
+2021/11/16
+  fix: dgkml updateStyle getType issue
+  fix: digimap _hexToRgbA  
+  add: dgkml getUpdateStyle
+2021/11/17
+  fix: dgkml getType image layer  
+2021/11/25
+  fix: dgPolygon getExtent
+  fix: dgPolyline getExtent
+  fix: PGWeb3D.min.js 更新
+2021/12/06
+  add: dgHeatmap 熱區圖  
+2021/12/14
+  fix: Easymap_plus toolbar 列印的功能會掛掉
+  fix: Easymap_plus toolbar 定義的var map一定要是map，如果是叫map2畫線、畫圓那些功能就會掛掉
+2021/12/21
+  fix: dgStaticImage、dgKml、dgCurve、dgGeoJson、dgPolygon、dgPolyline 修正 getExtent 取四角坐標
+  add: dgStaticImage、dgKml、dgCurve、dgGeoJson、dgPolygon、dgPolyline 增加 getExtentArea 取四角坐標面積
+  add: dgStaticImage、dgKml、dgCurve、dgGeoJson、dgPolygon 增加 getArea 取面積
+2021/12/24
+  add: MMJS setDragInfo 功能
+2021/12/28
+  add: enableDragBox 加 第二個參數，帶原生的 _dragbox 內容
+  fix: _min、_max 更完整的功能
+  fix: 修正範例 f_screenshot_cut
+2022/01/03
+  add: ol.index
+2022/01/17
+  fix: kml、gmarker 2D、3D 切換時當掉的問題
+2022/01/18
+  update: 更新 cesium 核心至 1.83.0  
+2022/01/24
+  fix: dgSTyle _hexToRgbA 取不到的問題
+2022/01/25
+  add: dgSource 增加 TMS 載圖範例
+  add: dgSource 增加 ImageMapGuide 中央地震斷層帶 範例
+2022/02/16
+  update: 更新 openlayers ol 核心從 6.5.0 至 6.12.0
+  add: dgPolygon 增加 enableDashed([4,8])、disableDashed 
+  add: dgPolyline 增加 enableDashed([4,8])、disableDashed 
+  add: dgCurve 增加 enableDashed([4,8])、disableDashed 
+  add: easymap 增加 dgToKml dg系列 轉 kml
+  add: easymap 增加 dgToGeoJSON dg系列 轉 geojson
+  add: easymap 增加 dgToEasyJSON dg系列 轉 easyjson
+  add: easymap 增加 EasyJsonToDG easyjson 轉 DG
+  fix: dgToEasyJSON curve 匯出後，應轉成 polygon
+  fix: version_full 加上最後發行日
+2022/03/01
+  add: panTo3D
+2022/03/04
+  add: dgWKT  
+2022/03/07
+  add: dgPolyline 增加 enableLineStringArrow 可畫箭頭
+  add: dgPolyline 增加 disableLineStringArrow 可移除箭頭
+  add: dgIcon 增加 options.rotate 可旋轉
+  add: dgIcon 增加 options.opacity 可控透明度
+2022/03/10
+  fix: dg3d onload onload 事件綁定改用 onload_after
+  add: easymap 增加開啟鷹眼圖 enableEagleEye
+  add: easymap 增加關閉鷹眼圖 disableEagleEye
+2022/03/11
+  add: easymap 增加開啟3D鷹眼圖 enable3DEagleEye
+  add: easymap 增加開啟3D鷹眼圖 disable3DEagleEye
+  fix: addMapControl 改用新版選單
+  add: dgPolyline 增加 enableLineStringArrow 可設定箭頭大小
